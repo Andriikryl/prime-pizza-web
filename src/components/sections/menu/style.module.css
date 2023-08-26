@@ -1,0 +1,174 @@
+.project{
+    padding-block: 160px;
+}
+
+.project__title{
+    color: var(--f-2-c-94-c, #F2C94C);
+    font-family: League Spartan;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+.project__title span{
+    color: var(--2-a-524-c, #2A524C);
+    font-family: League Spartan;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.card__list{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 25ch), 1fr));
+    gap: 40px;  
+    margin-block-end: 72px;
+}
+.card{
+   max-width: 342px;
+   list-style: none;
+   border-radius: 20px;
+   border-bottom: 2px solid #ECEFF5;
+   border-inline: 2px solid #ECEFF5;
+
+   border-radius: 30px;
+   
+}
+
+.card__info{
+    padding-inline: 20px;
+}
+
+.card__img{
+    border-radius: 20px;
+    overflow-y: hidden;
+    margin-block-end: 20px;
+}
+
+
+.card__title{
+    color: var(--black, #262626);
+    font-family: Open Sans;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%; 
+    margin-block-end: 10px;
+}
+
+.card__description{
+    color: #000;
+    font-family: Open Sans;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 150%; 
+    margin-block-end: 10px;
+}
+
+.card__group{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-block-end: 20px;
+}
+
+.card__size{
+    background: var(--yellow, linear-gradient(137deg, #FFDB47 0%, #FDCC06 100%));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.card__price{
+    color: var(--black, #262626);
+    font-family: Open Sans;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 150%;
+}
+
+.flex__group{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-block-end: 56px;
+}
+
+.button{
+    padding: 12px 52px;
+    color: var(--black, #262626);
+    text-align: center;
+    font-family: Open Sans;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 36px */
+    position: relative;
+    border-radius: 30px;
+background: var(--gray, #ECEFF5);
+border: none;
+cursor: pointer;
+}
+
+.button__amount{
+    color: var(--style, #06171E);
+    font-family: League Spartan;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    position: absolute;
+    top: -13px;
+    right: -7px;
+}
+
+
+.button:hover{
+    color: var(--f-2-c-94-c, #F2C94C);
+}
+
+.button.active {
+    color: #FFF;
+    text-align: center;
+    font-family: Open Sans;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%; /* 36px */
+    border-radius: 30px;
+    background: var(--yellow, linear-gradient(137deg, #FFDB47 0%, #FDCC06 100%));
+  }
+
+.btn__box{
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-inline: auto;
+}
+
+.project__btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card__btn{
+    margin-inline: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    width: 40px;
+    height: 40px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    filter: drop-shadow(0px 0px 20px rgba(147, 158, 180, 0.50));
+    border: none;
+    cursor: pointer;
+}

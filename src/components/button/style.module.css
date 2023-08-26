@@ -1,0 +1,26 @@
+.Button{
+    padding-block: 15px;
+    padding-inline: 17px 13px;
+    color: var(--white, #FFF);
+    text-align: center;
+    font-family: Open Sans;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%;
+    border-radius: 30px;
+    background: var(--yellow, linear-gradient(137deg, #FFDB47 0%, #FDCC06 100%));
+    cursor: pointer;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.Button::after{
+    content: "";
+    display: block;
+    background-image: url("/logo/btn-icon.svg");
+    width: 40px;
+    height: 40px;
+}
