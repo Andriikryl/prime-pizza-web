@@ -18,7 +18,7 @@ export default function Header() {
                 </a>
               </li>
               <li className={style.list__item}>
-                <a className={style.item__link} href="#">
+                <a className={style.item__link} href="/delivery">
                   Доставка та Оплата
                 </a>
               </li>
