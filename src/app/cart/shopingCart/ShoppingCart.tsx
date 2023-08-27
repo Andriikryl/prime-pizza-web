@@ -13,6 +13,7 @@ type Item = {
   description: string;
   price: string;
   size: string;
+  quantity: number;
 };
 
 const ShoppingCart = () => {
@@ -27,12 +28,10 @@ const ShoppingCart = () => {
     dispatch(cartActions.clearCart());
   };
 
-  const totalPrice = cartItems.reduce(
-    (total: number, item: { price: string }) => {
-      return total + parseFloat(item.price);
-    },
-    0
-  );
+  const totalPrice = cartItems.reduce((total: number, item: Item) => {
+    const itemPrice = parseFloat(item.price) * (item.quantity || 1);
+    return total + itemPrice;
+  }, 0);
 
   return (
     <div className={style.cart__box}>
@@ -50,6 +49,7 @@ const ShoppingCart = () => {
                 size: any;
                 price: any;
                 category: string;
+                quantity: number;
               }) => (
                 <li key={item.id} className={style.list__item}>
                   <div className={style.card__img}>
@@ -75,6 +75,27 @@ const ShoppingCart = () => {
                         {item.description}
                       </p>
                       <span className={style.card__size}>{item.size}</span>
+                    </div>
+                    <div className={style.quantity__box}>
+                      <button
+                        className={style.quantity__btn}
+                        onClick={() =>
+                          dispatch(cartActions.incrementQuantity(item.id))
+                        }
+                      >
+                        +
+                      </button>
+                      <span className={style.quantity__value}>
+                        {item.quantity}
+                      </span>
+                      <button
+                        className={style.quantity__btn}
+                        onClick={() =>
+                          dispatch(cartActions.decrementQuantity(item.id))
+                        }
+                      >
+                        -
+                      </button>
                     </div>
                     <div className={style.card__group}>
                       <span className={style.card__price}>{item.price}</span>

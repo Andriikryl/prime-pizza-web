@@ -9,15 +9,17 @@ interface Item {
   description: string;
   price: string;
   size: string;
-  quantity?: number; 
+  quantity: number; 
 }
 
 interface CartState {
   items: Item[];
+  totalQuantity: number; 
 }
 
 const initialState: CartState = {
   items: [],
+  totalQuantity: 0, 
 };
 
 const cartSlice = createSlice({
@@ -27,36 +29,36 @@ const cartSlice = createSlice({
     addItem: (state, action: PayloadAction<Item>) => {
       const newItem = action.payload;
       const existingItem = state.items.find(item => item.id === newItem.id);
-
+  
       if (existingItem) {
         existingItem.quantity = (existingItem.quantity || 0) + 1;
       } else {
         newItem.quantity = 1;
         state.items.push(newItem);
       }
+  
+      state.totalQuantity += 1; 
     },
     removeItem: (state, action: PayloadAction<Item>) => {
       state.items = state.items.filter(item => item.id !== action.payload.id);
     },
+    incrementQuantity: (state, action: PayloadAction<string>) => {
+      const item = state.items.find(item => item.id === action.payload);
+      if (item) {
+        item.quantity += 1;
+      }
+    },
+
+    decrementQuantity: (state, action: PayloadAction<string>) => {
+      const item = state.items.find(item => item.id === action.payload);
+      if (item && item.quantity > 1) {
+        item.quantity -= 1;
+      }
+    },
+
     clearCart: state => {
       state.items = [];
     },
-    // increment: (state, { payload }: PayloadAction<string>) => {
-    //   const count = state[payload] || 0;
-    //   state[payload] = count + 1;
-    // },
-    // decrement: (state, { payload }: PayloadAction<string>) => {
-    //   const count = state[payload];
-    //   if (!count) {
-    //     return;
-    //   }
-    //   if (count === 1) {
-    //     delete state[payload];
-    //     return;
-    //   }
-    //   state[payload] = count - 1;
-    // },
-    // reset: () => initialState,
   },
 });
 
