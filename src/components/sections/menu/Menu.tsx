@@ -6,6 +6,7 @@ import Card from "./Card";
 import Buttons from "./Buttons";
 import Data from "../../../data/data";
 import Button from "../../button/Button";
+import CartButton from "@/components/cartBtn/CartButton";
 
 export default function Menu() {
   const [item, setItem] = useState(Data);
@@ -35,6 +36,7 @@ export default function Menu() {
               menuItems={menuItems}
             />
           </div>
+          <CartButton />
         </div>
         <ul className={style.card__list}>
           <Card item={item.slice(0, visibleItems)} />

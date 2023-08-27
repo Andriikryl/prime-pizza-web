@@ -15,6 +15,10 @@ const ShoppingCart = () => {
     dispatch(cartActions.clearCart());
   };
 
+  const totalPrice = cartItems.reduce((total, item) => {
+    return total + parseFloat(item.price);
+  }, 0);
+
   return (
     <div>
       <h2>Shopping Cart</h2>
@@ -33,6 +37,7 @@ const ShoppingCart = () => {
           <button onClick={handleClearCart}>Clear Cart</button>
         </>
       )}
+      <p>{totalPrice}</p>
     </div>
   );
 };
