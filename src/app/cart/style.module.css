@@ -1,0 +1,5 @@
+.cart{
+    background: var(--gray, #ECEFF5);
+    min-height: 100dvh;
+    padding-block-end: 100px ;
+}

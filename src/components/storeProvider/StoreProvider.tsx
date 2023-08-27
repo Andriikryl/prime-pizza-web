@@ -1,8 +1,12 @@
 "use client";
 import store from "@/features/store/store";
-import React from "react";
+import React, { ReactNode } from "react";
 import { Provider } from "react-redux";
 
-export default function StoreProvider({ children }) {
+interface IStoreProvider {
+  children: ReactNode;
+}
+
+export default function StoreProvider({ children }: IStoreProvider) {
   return <Provider store={store}>{children}</Provider>;
 }

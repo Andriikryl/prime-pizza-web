@@ -1,0 +1,17 @@
+.cart__title{
+    color: var(--black, #262626);
+    text-align: center;
+    font-family: Open Sans;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.flex__group{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 218px;
+    padding-block: 90px 60px;
+}
