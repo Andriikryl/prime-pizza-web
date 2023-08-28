@@ -9,6 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@radix-ui/colors": "latest",
+    "@radix-ui/react-accordion": "latest",
+    "@radix-ui/react-checkbox": "^1.0.4",
+    "@radix-ui/react-icons": "latest",
     "@reduxjs/toolkit": "^1.9.5",
     "@types/node": "20.5.4",
     "@types/react": "18.2.21",

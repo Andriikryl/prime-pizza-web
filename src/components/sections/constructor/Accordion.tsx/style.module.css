@@ -1,0 +1,165 @@
+/* .AccordionRoot {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 50ch), 1fr));
+    place-items: center;
+    gap: 10px; 
+} */
+
+.AccordionItem {
+    max-width: 413px;
+    width: 100%;
+    overflow: hidden;
+    margin-block-end: 11px;
+  }
+  
+  
+  .AccordionItem:focus-within {
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 0 0 2px var(--mauve-12);
+  }
+  
+  
+  .AccordionTrigger {
+    padding-block: 14px;
+    padding-inline: 30px;
+    border-radius: 24px;
+    background: var(--white, #FFF);
+    border: 3px solid var(--gray, #ECEFF5);
+    width: 100%;
+    color: var(--black, #262626);
+    font-family: Open Sans;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%; /* 36px */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* border: none; */
+  }
+  
+  .AccordionContent {
+    overflow: hidden;
+    color: var(--title, #131414);
+    font-family: Montserrat;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 174.4%;
+    border-radius: 15px;
+  }
+  .AccordionContent[data-state='open'] {
+    animation: slideDown 300ms cubic-bezier(0.87, 0, 0.13, 1);
+    border: none;
+  }
+  .AccordionContent[data-state='closed'] {
+    animation: slideUp 300ms cubic-bezier(0.87, 0, 0.13, 1);
+  }
+
+  .AccordionTrigger[data-state='open'] {
+    background-color: #fff;
+    border: none;
+  }
+
+  .AccordionItem[data-state='open']{
+    border-radius: 15px;
+    border: 3px solid var(--gray, #ECEFF5);
+  }
+  
+  .AccordionContentText {
+    padding-block-end: 20px;
+    padding-inline: 25px;
+  }
+  
+  .AccordionChevron {
+    color: var(--violet-10);
+    transition: transform 300ms cubic-bezier(0.87, 0, 0.13, 1);
+  }
+  .AccordionTrigger[data-state='open'] > .AccordionChevron {
+    transform: rotate(180deg);
+  }
+  
+  @keyframes slideDown {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+  
+  @keyframes slideUp {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
+  
+
+  /*============================================= checkbox==================== */
+
+
+
+.CheckboxRoot {
+    border: 3px solid var(--gray, #ECEFF5);
+    background: var(--white, #FFF);
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+.CheckboxRoot:focus {
+    border: 3px solid tomato;
+}
+
+.CheckboxIndicator {
+  color: transparent;
+  background: var(--white, #FFF);
+  width: 35px;
+  height: 35px;
+  aspect-ratio: 1/1;
+  border: 3px solid #FDCC06;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+}
+.CheckboxIndicator::after{
+    content: "";
+    display: block;
+    width: 20px;
+    height: 20px;
+    background-image: url("/icons/interface 1.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    top: -9px;
+}
+
+.Label {
+    color: #000;
+    font-family: Open Sans;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 24px */
+}
+
+.form__box{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
