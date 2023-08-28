@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { cartActions } from "../../../features/cart/cartSlice";
 import style from "./style.module.css";
 import Image from "next/image";
+import { RootState } from "@/features/store/store";
 
 type Item = {
   id: number | string;
@@ -18,7 +19,7 @@ type Item = {
 
 const ShoppingCart = () => {
   const dispatch = useDispatch();
-  const cartItems = useSelector((state) => state.cart.items);
+  const cartItems = useSelector((state: RootState) => state.cart.items);
 
   const handleRemoveItem = (item: Item) => {
     dispatch(cartActions.removeItem(item));

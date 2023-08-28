@@ -11,6 +11,7 @@ type DataItem = {
   description: string;
   price: string;
   size: string;
+  quantity: number;
 };
 
 type CategoryCount = {
@@ -19,11 +20,15 @@ type CategoryCount = {
 
 type ButtonsProps = {
   filterItem: (category: string) => void;
-  setItem: (data: DataItem[]) => void;
+  setItem: React.Dispatch<React.SetStateAction<DataItem[]>>; // Update the type of setItem
   menuItems: string[];
 };
 
-const Buttons: React.FC<ButtonsProps> = ({ filterItem, setItem }) => {
+const Buttons: React.FC<ButtonsProps> = ({
+  filterItem,
+  setItem,
+  menuItems,
+}) => {
   const [active, setActive] = useState("");
 
   const getCategoryCount = (data: DataItem[]): CategoryCount => {

@@ -7,6 +7,7 @@ const Data = [
       size: "30sm",
       description: "вершки, моцарелла, дорблю, королівський, пармезан",
       img: "/card/card.jpg",
+      quantity: 0,
     },
   
     {
@@ -17,6 +18,7 @@ const Data = [
       price: "140грн",
       size: "30sm",
       img: "/card/card.jpg",
+      quantity: 0,
     },
     {
       id: "3",
@@ -26,6 +28,7 @@ const Data = [
       price: "140грн",
       size: "30sm",
       img: "/card/card.jpg",
+      quantity: 0,
     },
     {
       id: "4",
@@ -35,6 +38,7 @@ const Data = [
       price: "140грн",
       size: "30sm",
       img: "/card/card.jpg",
+      quantity: 0,
     },
     {
       id: "5",
@@ -44,6 +48,7 @@ const Data = [
       price: "140грн",
       size: "30sm",
       img: "/card/card.jpg",
+      quantity: 0,
     },
     {
       id: "6",
@@ -53,6 +58,7 @@ const Data = [
       price: "140грн",
       size: "30sm",
       img: "/card/card.jpg",
+      quantity: 0,
     },
     {
       id: "7",
@@ -62,6 +68,7 @@ const Data = [
       price: "140грн",
       size: "30sm",
       img: "/card/card.jpg",
+      quantity: 0,
     },
     {
       id: "8",
@@ -71,6 +78,7 @@ const Data = [
       price: "140грн",
       size: "30sm",
       img: "/card/card.jpg",
+      quantity: 0,
     },
     {
       id: "9",
@@ -80,6 +88,7 @@ const Data = [
       price: "140грн",
       size: "30sm",
       img: "/card/card.jpg",
+      quantity: 0,
     },
     {
       id: "10",
@@ -89,6 +98,7 @@ const Data = [
       price: "140грн",
       size: "30sm",
       img: "/card/card.jpg",
+      quantity: 0,
     },
     {
       id: "11",
@@ -98,6 +108,7 @@ const Data = [
       price: "140грн",
       size: "30sm",
       img: "/card/card.jpg",
+      quantity: 0,
     },
     {
       id: "12",
@@ -107,6 +118,7 @@ const Data = [
       price: "140грн",
       size: "30sm",
       img: "/card/card.jpg",
+      quantity: 0,
     },
     {
       id: "13",
@@ -116,6 +128,7 @@ const Data = [
       price: "140грн",
       size: "30sm",
       img: "/card/card.jpg",
+      quantity: 0,
     },
     {
       id: "14",
@@ -125,6 +138,7 @@ const Data = [
       price: "140грн",
       size: "30sm",
       img: "/card/card.jpg",
+      quantity: 0,
     },
     {
       id: "15",
@@ -134,6 +148,7 @@ const Data = [
       price: "140грн",
       size: "30sm",
       img: "/card/card.jpg",
+      quantity: 0,
     },
     {
       id: "16",
@@ -143,6 +158,7 @@ const Data = [
       price: "140грн",
       size: "30sm",
       img: "/card/card.jpg",
+      quantity: 0,
     },
     {
       id: "17",
@@ -152,6 +168,7 @@ const Data = [
       price: "140грн",
       size: "30sm",
       img: "/card/card.jpg",
+      quantity: 0,
     },
     {
       id: "18",
@@ -161,6 +178,7 @@ const Data = [
       price: "140грн",
       size: "30sm",
       img: "/card/card.jpg",
+      quantity: 0,
     },
     {
       id: "19",
@@ -170,6 +188,7 @@ const Data = [
       price: "140грн",
       size: "30sm",
       img: "/card/card.jpg",
+      quantity: 0,
     },
     {
       id: "20",
@@ -179,6 +198,7 @@ const Data = [
       price: "140грн",
       size: "30sm",
       img: "/card/card.jpg",
+      quantity: 0,
     },
   ];
   

@@ -3,6 +3,7 @@ import Image from "next/image";
 import style from "./style.module.css";
 import { useDispatch } from "react-redux";
 import { cartActions } from "@/features/cart/cartSlice";
+import AddButton from "public/icons/add.svg";
 
 type Item = {
   id: number | string;
@@ -12,6 +13,7 @@ type Item = {
   description: string;
   price: string;
   size: string;
+  quantity: number;
 };
 
 type CardProps = {
@@ -40,7 +42,12 @@ const Card: React.FC<CardProps> = ({ item }) => {
               className={style.card__btn}
               onClick={() => dispatch(cartActions.addItem(val))}
             >
-              add
+              <Image
+                src={AddButton}
+                width={18}
+                height={21}
+                alt="add stuf to the cart"
+              />
             </button>
           </li>
         );
