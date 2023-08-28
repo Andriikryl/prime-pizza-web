@@ -5,12 +5,16 @@ import Image from "next/image";
 import style from "./style.module.css";
 import Link from "next/link";
 import { useSelector } from "react-redux";
+import { RootState } from "@/features/store/store";
 
 export default function CartButton() {
-  const cartItems = useSelector((state) => state.cart.items);
-  const totalItems = cartItems.reduce((total, item) => {
-    return total + item.quantity;
-  }, 0);
+  const cartItems = useSelector((state: RootState) => state.cart.items);
+  const totalItems = cartItems.reduce(
+    (total: number, item: { quantity: number }) => {
+      return total + item.quantity;
+    },
+    0
+  );
 
   return (
     <div>
