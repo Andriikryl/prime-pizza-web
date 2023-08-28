@@ -7,6 +7,7 @@ import Buttons from "./Buttons";
 import Data from "../../../data/data";
 import Button from "../../button/Button";
 import CartButton from "@/components/cartBtn/CartButton";
+import Image from "next/image";
 
 export default function Menu() {
   const [item, setItem] = useState(Data);

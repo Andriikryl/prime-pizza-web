@@ -1,0 +1,102 @@
+.marquee {
+    display: flex;
+    overflow: hidden;
+    user-select: none;
+    position: relative;
+    -webkit-mask-image: linear-gradient(to right, hsla(0deg, 0%, 0%, 0), hsl(0deg, 0%, 0%) 20%, hsl(0deg, 0%, 0%) 80%, hsla(0deg, 0%, 0%, 0));
+    mask-image: linear-gradient(to right, hsla(0deg, 0%, 0%, 0), hsl(0deg, 0%, 0%) 20%, hsl(0deg, 0%, 0%) 80%, hsla(0deg, 0%, 0%, 0));
+    z-index: 10;
+    margin-block-end: 30px;
+    position: relative;
+  }
+
+  .social__box{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #FFDB47;
+    padding-block: 15px;
+    padding-inline: 25px;
+    opacity: 0.9;
+    border-radius: 10px;
+}
+
+.social__link{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding-block: 69px;
+    padding-inline: 71px;
+    color: var(--white, #FFF);
+    font-family: Open Sans;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-decoration: none;
+    border-radius: 12px;
+    border: 1px solid var(--white, #FFF);
+}
+
+  
+  .marquee__content {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 21px;
+    min-width: 100%;
+    animation: scroll-x 30s linear infinite;
+    margin-inline-end: 20px; 
+  }
+
+  .revers__animation{
+    animation: scroll-x 30s linear infinite reverse;
+  }
+
+  .marquee__item{
+    padding:20px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border-radius: 20px;
+    border: 1px solid var(--stroke, #DBDBDB);
+  }
+
+  .image__box{
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .image__box::before{
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: rgba(72, 72, 72, 0.70);
+  }
+
+  
+  @keyframes scroll-x {
+    from {
+      transform: translateX (0);
+    }
+    to {
+      transform: translateX(calc(-100% - 21px));
+    }
+  }
+
+  @media (max-width: 700px) {
+    .flex__group{
+      text-align: center;
+    } 
+    .flex__group div{
+      margin-inline: auto;
+    }
+  }

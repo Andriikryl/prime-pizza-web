@@ -20,7 +20,7 @@
 .Button::after{
     content: "";
     display: block;
-    background-image: url("/logo/btn-icon.svg");
+    background-image: url("/icons/arrow.svg");
     width: 40px;
     height: 40px;
 }
