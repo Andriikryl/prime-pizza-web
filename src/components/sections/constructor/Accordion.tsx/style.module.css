@@ -1,11 +1,13 @@
-/* .AccordionRoot {
+
+.AccordionRoot{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 50ch), 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 40ch), 1fr));
     place-items: center;
     gap: 10px; 
-} */
-
-.AccordionItem {
+    margin-block-end: 60px;
+  }
+  
+  .AccordionItem {
     max-width: 413px;
     width: 100%;
     overflow: hidden;
@@ -21,6 +23,7 @@
   
   
   .AccordionTrigger {
+    cursor: pointer;
     padding-block: 14px;
     padding-inline: 30px;
     border-radius: 24px;
@@ -36,7 +39,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* border: none; */
   }
   
   .AccordionContent {
@@ -150,6 +152,7 @@
 }
 
 .Label {
+  width: 100%;
     color: #000;
     font-family: Open Sans;
     font-size: 16px;
@@ -162,4 +165,48 @@
     display: flex;
     align-items: center;
     gap: 20px;
+}
+
+.label__group{
+  display: flex;
+  justify-content: space-between;
+}
+
+.label__group span{
+  display: block;
+}
+
+.label__price{
+  color: var(--black, #262626);
+  font-family: Open Sans;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%; /* 24px */
+}
+
+.control__group{
+  
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  justify-content: center;
+}
+
+.constructor__cost{
+  color: var(--black, #262626);
+  font-family: Open Sans;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.constructor__cost span{
+  color: var(--black, #262626);
+  font-family: Open Sans;
+  font-size: 42px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
 }

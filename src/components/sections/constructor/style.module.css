@@ -1,3 +1,14 @@
 .constructor__box{
     margin-block-end: 200px;
 }
+
+.constructor__title{
+    color: #000;
+    text-align: center;
+    font-family: Open Sans;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-block-end: 70px;
+}

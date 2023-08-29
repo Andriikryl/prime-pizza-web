@@ -1,11 +1,201 @@
 "use client";
-import React, { FC, forwardRef, ReactNode, Ref } from "react";
+import React, { FC, forwardRef, ReactNode, Ref, useState } from "react";
 import * as Checkbox from "@radix-ui/react-checkbox";
 import { CheckIcon } from "@radix-ui/react-icons";
 import * as Accordion from "@radix-ui/react-accordion";
 import classNames from "classnames";
 import { ChevronDownIcon } from "@radix-ui/react-icons";
 import style from "./style.module.css";
+import Button from "@/components/button/Button";
+
+const data = [
+  {
+    id: 1,
+    title: "Сир",
+    value: "item-1",
+    form: [
+      {
+        id: 1,
+        idForm: "c1",
+        titleForm: "Моцарелла",
+        price: 27,
+      },
+      {
+        id: 1,
+        idForm: "c2",
+        titleForm: "Пармезан",
+        price: 21,
+      },
+      {
+        id: 1,
+        idForm: "c3",
+        titleForm: "Королівський",
+        price: 17,
+      },
+      {
+        id: 1,
+        idForm: "c4",
+        titleForm: "Дорблю",
+        price: 47,
+      },
+    ],
+  },
+  {
+    id: 2,
+    title: "М’ясо",
+    value: "item-2",
+    form: [
+      {
+        id: 1,
+        idForm: "a1",
+        titleForm: "backon",
+        price: 47,
+      },
+      {
+        id: 2,
+        idForm: "a2",
+        titleForm: "porck",
+        price: 47,
+      },
+      {
+        id: 3,
+        idForm: "a3",
+        titleForm: "chiken",
+        price: 47,
+      },
+      {
+        id: 4,
+        idForm: "a4",
+        titleForm: "beef",
+        price: 47,
+      },
+    ],
+  },
+  {
+    id: 3,
+    title: "Соуси до піци",
+    value: "item-3",
+    form: [
+      {
+        id: 1,
+        idForm: "q1",
+        titleForm: "pesto",
+        price: 47,
+      },
+      {
+        id: 2,
+        idForm: "q2",
+        titleForm: "tomato",
+        price: 47,
+      },
+      {
+        id: 3,
+        idForm: "q3",
+        titleForm: "qest",
+        price: 47,
+      },
+      {
+        id: 4,
+        idForm: "q4",
+        titleForm: "yupi",
+        price: 47,
+      },
+    ],
+  },
+  {
+    id: 3,
+    title: "Соуси до піци",
+    value: "item-4",
+    form: [
+      {
+        id: 1,
+        idForm: "w1",
+        titleForm: "pesto",
+        price: 47,
+      },
+      {
+        id: 2,
+        idForm: "w2",
+        titleForm: "tomato",
+        price: 47,
+      },
+      {
+        id: 3,
+        idForm: "w3",
+        titleForm: "qest",
+        price: 47,
+      },
+      {
+        id: 4,
+        idForm: "w4",
+        titleForm: "yupi",
+        price: 47,
+      },
+    ],
+  },
+  {
+    id: 3,
+    title: "Соуси до піци",
+    value: "item-5",
+    form: [
+      {
+        id: 1,
+        idForm: "x1",
+        titleForm: "pesto",
+        price: 47,
+      },
+      {
+        id: 2,
+        idForm: "x2",
+        titleForm: "tomato",
+        price: 47,
+      },
+      {
+        id: 3,
+        idForm: "x3",
+        titleForm: "qest",
+        price: 47,
+      },
+      {
+        id: 4,
+        idForm: "x4",
+        titleForm: "yupi",
+        price: 47,
+      },
+    ],
+  },
+  {
+    id: 3,
+    title: "Соуси до піци",
+    value: "item-6",
+    form: [
+      {
+        id: 1,
+        idForm: "c1",
+        titleForm: "pesto",
+        price: 47,
+      },
+      {
+        id: 2,
+        idForm: "c2",
+        titleForm: "tomato",
+        price: 47,
+      },
+      {
+        id: 3,
+        idForm: "c3",
+        titleForm: "qest",
+        price: 47,
+      },
+      {
+        id: 4,
+        idForm: "c4",
+        titleForm: "yupi",
+        price: 47,
+      },
+    ],
+  },
+];
 
 interface AccordionTriggerProps {
   children: ReactNode;
@@ -54,116 +244,58 @@ const AccordionContent: FC<AccordionContentProps> = forwardRef(
 AccordionContent.displayName = "AccordionContent";
 
 const AccordionDemo: FC = () => (
-  <Accordion.Root
-    className={style.AccordionRoot}
-    type="single"
-    defaultValue="item-1"
-    collapsible
-  >
-    <div>
-      <Accordion.Item className={style.AccordionItem} value="item-1">
-        <AccordionTrigger>Сир</AccordionTrigger>
-        <AccordionContent>
-          <form className={style.form}>
-            <div className={style.form__box}>
-              <Checkbox.Root className={style.CheckboxRoot} id="c1">
-                <Checkbox.Indicator className={style.CheckboxIndicator}>
-                  <CheckIcon />
-                </Checkbox.Indicator>
-              </Checkbox.Root>
-              <label className={style.Label} htmlFor="c1">
-                Моцарелла
-              </label>
-            </div>
-
-            <div className={style.form__box}>
-              <Checkbox.Root className={style.CheckboxRoot} id="c2">
-                <Checkbox.Indicator className={style.CheckboxIndicator}>
-                  <CheckIcon />
-                </Checkbox.Indicator>
-              </Checkbox.Root>
-              <label className={style.Label} htmlFor="c2">
-                Пармезан
-              </label>
-            </div>
-
-            <div className={style.form__box}>
-              <Checkbox.Root className={style.CheckboxRoot} id="c3">
-                <Checkbox.Indicator className={style.CheckboxIndicator}>
-                  <CheckIcon />
-                </Checkbox.Indicator>
-              </Checkbox.Root>
-              <label className={style.Label} htmlFor="c3">
-                Королівський
-              </label>
-            </div>
-
-            <div className={style.form__box}>
-              <Checkbox.Root className={style.CheckboxRoot} id="c4">
-                <Checkbox.Indicator className={style.CheckboxIndicator}>
-                  <CheckIcon />
-                </Checkbox.Indicator>
-              </Checkbox.Root>
-              <label className={style.Label} htmlFor="c4">
-                Дорблю
-              </label>
-            </div>
-          </form>
-        </AccordionContent>
-      </Accordion.Item>
-
-      <Accordion.Item className={style.AccordionItem} value="item-2">
-        <AccordionTrigger>Напої до піци</AccordionTrigger>
-        <AccordionContent>
-          <form className={style.form}>
-            <div className={style.form__box}>
-              <Checkbox.Root className={style.CheckboxRoot} id="a1">
-                <Checkbox.Indicator className={style.CheckboxIndicator}>
-                  <CheckIcon />
-                </Checkbox.Indicator>
-              </Checkbox.Root>
-              <label className={style.Label} htmlFor="a1">
-                coka
-              </label>
-            </div>
-
-            <div className={style.form__box}>
-              <Checkbox.Root className={style.CheckboxRoot} id="a2">
-                <Checkbox.Indicator className={style.CheckboxIndicator}>
-                  <CheckIcon />
-                </Checkbox.Indicator>
-              </Checkbox.Root>
-              <label className={style.Label} htmlFor="a2">
-                Shveps
-              </label>
-            </div>
-
-            <div className={style.form__box}>
-              <Checkbox.Root className={style.CheckboxRoot} id="a3">
-                <Checkbox.Indicator className={style.CheckboxIndicator}>
-                  <CheckIcon />
-                </Checkbox.Indicator>
-              </Checkbox.Root>
-              <label className={style.Label} htmlFor="a3">
-                Mr. Di
-              </label>
-            </div>
-
-            <div className={style.form__box}>
-              <Checkbox.Root className={style.CheckboxRoot} id="a4">
-                <Checkbox.Indicator className={style.CheckboxIndicator}>
-                  <CheckIcon />
-                </Checkbox.Indicator>
-              </Checkbox.Root>
-              <label className={style.Label} htmlFor="a4">
-                Twist
-              </label>
-            </div>
-          </form>
-        </AccordionContent>
-      </Accordion.Item>
+  <>
+    <Accordion.Root
+      className={style.AccordionRoot}
+      type="single"
+      defaultValue="item-1"
+      collapsible
+    >
+      {data.map((item) => {
+        return (
+          <Accordion.Item
+            className={style.AccordionItem}
+            key={item.id}
+            value={item.value}
+          >
+            <AccordionTrigger>{item.title}</AccordionTrigger>
+            <AccordionContent>
+              <form className={style.form}>
+                {item.form.map((item) => {
+                  return (
+                    <div className={style.form__box} key={item.id}>
+                      <Checkbox.Root
+                        className={style.CheckboxRoot}
+                        id={item.idForm}
+                      >
+                        <Checkbox.Indicator className={style.CheckboxIndicator}>
+                          <CheckIcon />
+                        </Checkbox.Indicator>
+                      </Checkbox.Root>
+                      <label className={style.Label} htmlFor={item.idForm}>
+                        <div className={style.label__group}>
+                          <span>{item.titleForm}</span>
+                          <span className={style.label__price}>
+                            {item.price} грн
+                          </span>
+                        </div>
+                      </label>
+                    </div>
+                  );
+                })}
+              </form>
+            </AccordionContent>
+          </Accordion.Item>
+        );
+      })}
+    </Accordion.Root>
+    <div className={style.control__group}>
+      <p className={style.constructor__cost}>
+        загальна сума: <span>128грн</span>
+      </p>
+      <Button>В кошик</Button>
     </div>
-  </Accordion.Root>
+  </>
 );
 
 export default AccordionDemo;
