@@ -247,15 +247,32 @@ type ItemQuantities = { [key: string]: number };
 
 function AccordionDemo() {
   const [itemQuantities, setItemQuantities] = useState<ItemQuantities>({});
+  const [totalCost, setTotalCost] = useState<number>(0);
 
   const handleCheckboxChange = (
     itemIdForm: string,
-    checked: string | boolean
+    checked: string | boolean,
+    price: number | void
   ) => {
     setItemQuantities((prevQuantities) => ({
       ...prevQuantities,
       [itemIdForm]: checked ? 1 : 0,
     }));
+
+    const updatedQuantities = {
+      ...itemQuantities,
+      [itemIdForm]: checked ? 1 : 0,
+    };
+    const newTotalCost = Object.keys(updatedQuantities).reduce(
+      (acc, itemId) =>
+        acc +
+        (updatedQuantities[itemId] || 0) *
+          (data
+            .flatMap((item) => item.form)
+            .find((item) => item.idForm === itemId)?.price || 0),
+      0
+    );
+    setTotalCost(newTotalCost);
   };
 
   const handleIncrement = (itemIdForm: string) => {
@@ -344,7 +361,7 @@ function AccordionDemo() {
       </Accordion.Root>
       <div className={style.control__group}>
         <p className={style.constructor__cost}>
-          загальна сума: <span>128грн</span>
+          загальна сума: <span>{totalCost}грн</span>
         </p>
         <Button>В кошик</Button>
       </div>
