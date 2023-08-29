@@ -239,3 +239,7 @@
   align-items: center;
   font-size: 20px;
 }
+
+.check__title{
+  min-width: 100px;
+}

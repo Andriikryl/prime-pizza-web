@@ -280,6 +280,7 @@ function AccordionDemo() {
       ...prevQuantities,
       [itemIdForm]: (prevQuantities[itemIdForm] || 0) + 1,
     }));
+    updateTotalCost();
   };
 
   const handleDecrement = (itemIdForm: string) => {
@@ -287,6 +288,20 @@ function AccordionDemo() {
       ...prevQuantities,
       [itemIdForm]: Math.max(0, (prevQuantities[itemIdForm] || 0) - 1),
     }));
+    updateTotalCost();
+  };
+
+  const updateTotalCost = () => {
+    const newTotalCost = Object.keys(itemQuantities).reduce(
+      (acc, itemId) =>
+        acc +
+        (itemQuantities[itemId] || 0) *
+          (data
+            .flatMap((item) => item.form)
+            .find((item) => item.idForm === itemId)?.price || 0),
+      0
+    );
+    setTotalCost(newTotalCost);
   };
 
   return (
@@ -325,7 +340,9 @@ function AccordionDemo() {
                         </Checkbox.Root>
                         <label className={style.Label} htmlFor={item.idForm}>
                           <div className={style.label__group}>
-                            <span>{item.titleForm}</span>
+                            <span className={style.check__title}>
+                              {item.titleForm}
+                            </span>
                             {itemQuantities[item.idForm] > 0 && (
                               <div className={style.quantityButtons}>
                                 <button
