@@ -210,3 +210,32 @@
   font-weight: 300;
   line-height: normal;
 }
+
+.quantityButtons{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.quantity__increment{
+  color: var(--gray-2, #939EB4);
+  font-family: Open Sans;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+}
+
+.quantityButton{
+  color: #939EB4;
+  width: 20px;
+  height: 20px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 1px solid #939EB4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+}

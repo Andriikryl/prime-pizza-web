@@ -21,19 +21,19 @@ const data = [
         price: 27,
       },
       {
-        id: 1,
+        id: 2,
         idForm: "c2",
         titleForm: "Пармезан",
         price: 21,
       },
       {
-        id: 1,
+        id: 3,
         idForm: "c3",
         titleForm: "Королівський",
         price: 17,
       },
       {
-        id: 1,
+        id: 4,
         idForm: "c4",
         titleForm: "Дорблю",
         price: 47,
@@ -103,7 +103,7 @@ const data = [
     ],
   },
   {
-    id: 3,
+    id: 4,
     title: "Соуси до піци",
     value: "item-4",
     form: [
@@ -134,7 +134,7 @@ const data = [
     ],
   },
   {
-    id: 3,
+    id: 5,
     title: "Соуси до піци",
     value: "item-5",
     form: [
@@ -165,7 +165,7 @@ const data = [
     ],
   },
   {
-    id: 3,
+    id: 6,
     title: "Соуси до піци",
     value: "item-6",
     form: [
@@ -243,59 +243,113 @@ const AccordionContent: FC<AccordionContentProps> = forwardRef(
 
 AccordionContent.displayName = "AccordionContent";
 
-const AccordionDemo: FC = () => (
-  <>
-    <Accordion.Root
-      className={style.AccordionRoot}
-      type="single"
-      defaultValue="item-1"
-      collapsible
-    >
-      {data.map((item) => {
-        return (
-          <Accordion.Item
-            className={style.AccordionItem}
-            key={item.id}
-            value={item.value}
-          >
-            <AccordionTrigger>{item.title}</AccordionTrigger>
-            <AccordionContent>
-              <form className={style.form}>
-                {item.form.map((item) => {
-                  return (
-                    <div className={style.form__box} key={item.id}>
-                      <Checkbox.Root
-                        className={style.CheckboxRoot}
-                        id={item.idForm}
-                      >
-                        <Checkbox.Indicator className={style.CheckboxIndicator}>
-                          <CheckIcon />
-                        </Checkbox.Indicator>
-                      </Checkbox.Root>
-                      <label className={style.Label} htmlFor={item.idForm}>
-                        <div className={style.label__group}>
-                          <span>{item.titleForm}</span>
-                          <span className={style.label__price}>
-                            {item.price} грн
-                          </span>
-                        </div>
-                      </label>
-                    </div>
-                  );
-                })}
-              </form>
-            </AccordionContent>
-          </Accordion.Item>
-        );
-      })}
-    </Accordion.Root>
-    <div className={style.control__group}>
-      <p className={style.constructor__cost}>
-        загальна сума: <span>128грн</span>
-      </p>
-      <Button>В кошик</Button>
-    </div>
-  </>
-);
+type ItemQuantities = { [key: string]: number };
+
+function AccordionDemo() {
+  const [itemQuantities, setItemQuantities] = useState<ItemQuantities>({});
+
+  const handleCheckboxChange = (
+    itemIdForm: string,
+    checked: string | boolean
+  ) => {
+    setItemQuantities((prevQuantities) => ({
+      ...prevQuantities,
+      [itemIdForm]: checked ? 1 : 0,
+    }));
+  };
+
+  const handleIncrement = (itemIdForm: string) => {
+    setItemQuantities((prevQuantities) => ({
+      ...prevQuantities,
+      [itemIdForm]: (prevQuantities[itemIdForm] || 0) + 1,
+    }));
+  };
+
+  const handleDecrement = (itemIdForm: string) => {
+    setItemQuantities((prevQuantities) => ({
+      ...prevQuantities,
+      [itemIdForm]: Math.max(0, (prevQuantities[itemIdForm] || 0) - 1),
+    }));
+  };
+
+  return (
+    <>
+      <Accordion.Root
+        className={style.AccordionRoot}
+        type="single"
+        defaultValue="item-1"
+        collapsible
+      >
+        {data.map((item) => {
+          return (
+            <Accordion.Item
+              className={style.AccordionItem}
+              key={item.id}
+              value={item.value}
+            >
+              <AccordionTrigger>{item.title}</AccordionTrigger>
+              <AccordionContent>
+                <form className={style.form}>
+                  {item.form.map((item) => {
+                    return (
+                      <div className={style.form__box} key={item.id}>
+                        <Checkbox.Root
+                          className={style.CheckboxRoot}
+                          id={item.idForm}
+                          onCheckedChange={(checked) =>
+                            handleCheckboxChange(item.idForm, checked)
+                          }
+                        >
+                          <Checkbox.Indicator
+                            className={style.CheckboxIndicator}
+                          >
+                            <CheckIcon />
+                          </Checkbox.Indicator>
+                        </Checkbox.Root>
+                        <label className={style.Label} htmlFor={item.idForm}>
+                          <div className={style.label__group}>
+                            <span>{item.titleForm}</span>
+                            {itemQuantities[item.idForm] > 0 && (
+                              <div className={style.quantityButtons}>
+                                <button
+                                  type="button"
+                                  className={style.quantityButton}
+                                  onClick={() => handleDecrement(item.idForm)}
+                                >
+                                  -
+                                </button>
+                                <span className={style.quantity__increment}>
+                                  {itemQuantities[item.idForm]}
+                                </span>
+                                <button
+                                  type="button"
+                                  className={style.quantityButton}
+                                  onClick={() => handleIncrement(item.idForm)}
+                                >
+                                  +
+                                </button>
+                              </div>
+                            )}
+                            <span className={style.quantity}>{item.price}</span>
+                          </div>
+                        </label>
+                      </div>
+                    );
+                  })}
+                </form>
+              </AccordionContent>
+            </Accordion.Item>
+          );
+        })}
+      </Accordion.Root>
+      <div className={style.control__group}>
+        <p className={style.constructor__cost}>
+          загальна сума: <span>128грн</span>
+        </p>
+        <Button>В кошик</Button>
+      </div>
+    </>
+  );
+}
 
 export default AccordionDemo;
