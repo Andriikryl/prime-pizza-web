@@ -3,6 +3,7 @@ import React from "react";
 import CartControls from "./cartControls/CartControls";
 import { Container } from "@/components/container/Container";
 import style from "./style.module.css";
+import ExtraStuf from "./extraStuf/ExtraStuf";
 
 export default function Cart() {
   return (
@@ -10,6 +11,7 @@ export default function Cart() {
       <Container>
         <CartControls />
         <ShoppingCart />
+        <ExtraStuf />
       </Container>
     </section>
   );
