@@ -9,11 +9,11 @@ import { RootState } from "@/features/store/store";
 type Item = {
   id: number | string;
   img: string;
-  category: string;
+  category?: string;
   title: string;
-  description: string;
+  description?: string;
   price: string;
-  size: string;
+  size?: string;
   quantity: number;
 };
 
@@ -46,10 +46,10 @@ const ShoppingCart = () => {
                 id: any;
                 img: any;
                 title: any;
-                description: any;
-                size: any;
+                description?: any;
+                size?: any;
                 price: any;
-                category: string;
+                category?: string;
                 quantity: number;
               }) => (
                 <li key={item.id} className={style.list__item}>

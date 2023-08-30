@@ -8,11 +8,11 @@ import AddButton from "public/icons/add.svg";
 type Item = {
   id: number | string;
   img: string;
-  category: string;
+  category?: string;
   title: string;
-  description: string;
+  description?: string;
   price: string;
-  size: string;
+  size?: string;
   quantity: number;
 };
 
