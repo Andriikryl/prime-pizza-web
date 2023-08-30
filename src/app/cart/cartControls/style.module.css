@@ -12,6 +12,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 218px;
+    flex-wrap: wrap;
+    gap: clamp(30px, 5vw + 1rem, 218px);
     padding-block: 90px 60px;
 }

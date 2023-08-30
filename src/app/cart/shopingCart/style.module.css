@@ -20,6 +20,8 @@
 }
 
 .cart__list{
+    max-height: 600px;
+    overflow-y: auto;
     padding-block: 40px;
     padding-inline: 40px;
     display: flex;
@@ -27,6 +29,20 @@
     gap: 40px;
     max-width: 962px;
 }
+
+.cart__list::-webkit-scrollbar{
+    width: 10px;
+    height: 40px;
+  }
+  .cart__list::-webkit-scrollbar-track{
+    background: var(--fcfcfc, #FCFCFC);
+    width: 1px;
+  }
+
+  .cart__list::-webkit-scrollbar-thumb{
+    border-radius: 14px;
+    background: var(--f-2-c-94-c, #F2C94C);
+  }
 
 .list__item{
     position: relative;
@@ -36,6 +52,8 @@
     list-style: none;
     padding-block-end: 40px;
 }
+
+
 
 .list__item::before{
     content: "";
@@ -118,6 +136,7 @@
 .flex__group{
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     align-items: center;
     padding-inline: 40px;
     margin-block-end: 20px;
@@ -182,4 +201,29 @@
     font-family: Open Sans;
     font-size: 24px;
     cursor: pointer;
+}
+
+@media (max-width: 900px) {
+    .list__item{
+        flex-direction: column;
+    }
+    .card__img{
+        flex-direction: column;
+        gap: 10px;
+    }
+    .image__box{
+        order: 1;
+    }
+    .delet__button{
+        order: 2;
+    }
+    .card__info{
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 10px;
+    }
+    .card__description{
+        margin-block-end: 10px;
+    }
 }

@@ -9,7 +9,7 @@
     display: flex;
     gap: 30px;
     align-items: center;
-    /* flex-wrap: wrap; */
+    flex-wrap: wrap;
 }
 
 .item__text{
@@ -52,4 +52,17 @@
 }
 .list__item:nth-child(4) .item__text{
     order: 1;
+}
+
+@media (max-width: 1100px) {
+    .list__item{
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    .info__list{
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
 }

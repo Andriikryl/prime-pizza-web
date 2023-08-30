@@ -19,7 +19,7 @@
 .hero__title{
     color: var(--black, #262626);
     font-family: Open Sans;
-    font-size: 42px;
+    font-size: clamp(20px, 5vw + 1rem, 42px);
     font-style: normal;
     font-weight: 700;
     line-height: normal;
