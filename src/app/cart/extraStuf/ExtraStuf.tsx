@@ -1,11 +1,15 @@
+"use client";
 import React from "react";
 import { Container } from "@/components/container/Container";
 import style from "./style.module.css";
 import data from "../../../data/extraData";
 import BtnCartImage from "public/card/card-btn.svg";
 import Image from "next/image";
+import { useDispatch } from "react-redux";
+import { cartActions } from "@/features/cart/cartSlice";
 
 export default function ExtraStuf() {
+  const dispatch = useDispatch();
   return (
     <section className={style.stuf}>
       <Container>
@@ -25,6 +29,7 @@ export default function ExtraStuf() {
                     width={18}
                     height={21}
                     alt="button"
+                    onClick={() => dispatch(cartActions.addItem(item))}
                   />
                 </button>
               </li>

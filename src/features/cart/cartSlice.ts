@@ -4,11 +4,11 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 interface Item {
   id: number | string;
   img: string;
-  category: string;
+  category?: string;
   title: string;
-  description: string;
+  description?: string;
   price: string;
-  size: string;
+  size?: string;
   quantity: number; 
 }
 
